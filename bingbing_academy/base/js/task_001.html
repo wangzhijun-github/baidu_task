@@ -7,7 +7,7 @@
     window.onload=function(){
     
     var eventUtil = {
-        // 添加句柄
+        // 添加事件处理器
         addHandler: function(element, type, handler) {
             if (element.addEventListener) {
                 element.addEventListener(type, handler, false);
