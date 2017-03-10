@@ -1,0 +1,217 @@
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <script src="" type="text/javascript"></script>
+    <title>鼠标悬浮模糊效果</title>
+    <style type="text/css">
+    #container {
+        width: 420px;
+        margin: 0 auto;
+        height: 300px;
+        position: relative;
+        border: 0px solid black;
+    }
+    
+    #container img {
+        width: 420px;
+        margin: 0 auto;
+        height: 300px;
+        position: absolute;
+        top: 3px;
+        left: 0px;
+        -webkit-transition: -webkit-filter 5s;
+        transition: -webkit-filter 5s;
+        -o-transition: filter 5s;
+        -moz-transition: filter 5s;
+        transition: filter 5s;
+        transition: -webkit-filter 5s;
+    }
+    
+    #main {
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        vertical-align: middle;
+        vertical-align: middle;
+        text-align: center;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -moz-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        align-items: center
+    }
+    
+    #main a {
+        font-size: 24px;
+        z-index: 9999;
+        font-family: sans-serif;
+        font-style: italic;
+        text-decoration: none;
+        -webkit-animation: fontColor 2s;
+        animation: fontColor 2s;
+        -o-animation: fontColor 2s;
+        -moz-animation: fontColor 2s;
+        animation: fontColor 2s;
+        -webkit-animation-iteration-count: infinite;
+        -moz-animation-iteration-count: infinite;
+        -o-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+    }
+    
+    @keyframes fontColor {
+        0% {
+            color: #00FA9A
+        }
+        20% {
+            color: #00FF00
+        }
+        40% {
+            color: #00FF7F
+        }
+        60% {
+            color: #00FFFF
+        }
+        80% {
+            color: #00FF7F
+        }
+        100% {
+            color: #00FF00
+        }
+    }
+    
+    @-moz-keyframes fontColor {
+        0% {
+            color: #00FA9A
+        }
+        20% {
+            color: #00FF00
+        }
+        40% {
+            color: #00FF7F
+        }
+        60% {
+            color: #00FFFF
+        }
+        80% {
+            color: #00FF7F
+        }
+        100% {
+            color: #00FF00
+        }
+    }
+    
+    @-webkit-keyframes fontColor {
+        0% {
+            color: #00FA9A
+        }
+        20% {
+            color: #00FF00
+        }
+        40% {
+            color: #00FF7F
+        }
+        60% {
+            color: #00FFFF
+        }
+        80% {
+            color: #00FF7F
+        }
+        100% {
+            color: #00FF00
+        }
+    }
+    
+    @-o-keyframes fontColor {
+        0% {
+            color: #00FA9A
+        }
+        20% {
+            color: #00FF00
+        }
+        40% {
+            color: #00FF7F
+        }
+        60% {
+            color: #00FFFF
+        }
+        80% {
+            color: #00FF7F
+        }
+        100% {
+            color: #00FF00
+        }
+    }
+    
+    #main::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 0%;
+        top: 50%;
+        border: 3px solid #F4A460;
+        border-width: 0px 3px;
+        -webkit-transition: all 3s ease;
+        -o-transition: all 3s ease;
+        -moz-transition: all 3s ease;
+        transition: all 3s ease;
+    }
+    
+    #container:hover #main::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        border-color: #DEB887;
+        height: 100%;
+        top: 0;
+    }
+    
+    #main::after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        top: 0px;
+        height: 100%;
+        left: 50%;
+        border: 3px solid #F4A460;
+        border-width: 3px 0px;
+        -webkit-transition: all 3s ease;
+        -o-transition: all 3s ease;
+        -moz-transition: all 3s ease;
+        transition: all 3s ease;
+    }
+    
+    #container:hover #main::after {
+        content: "";
+        border-color: #DEB887;
+        width: 100%;
+        left: 0;
+    }
+    
+    .container:hover img {
+        -webkit-filter: blur(2px);
+        filter: blur(2px)
+    }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="main">
+            <a href="">Welcome to our world</a>
+        </div>
+        <img src="../resource/img/bean.jpg">
+    </div>
+</body>
+
+</html>
