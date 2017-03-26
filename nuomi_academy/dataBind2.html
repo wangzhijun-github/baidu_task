@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+    // 观察者构造函数
+function Observer(data) {
+    this.data = data;
+
+};
+
+
+let p = Observer.prototype;
+
+
+p.$watch = function(key,fun){  //定义setter的回调函数
+	  this.setterFun(key ,fun);
+};
+
+p.setterFun = function (key,fun) {  //setter 触发这个回调函数
+    Object.defineProperty(this.data, key, {
+        enumerable: true,
+        configurable: true,
+        get: function () {
+            console.log('你访问了' + key);
+            return val
+        },
+        set: function (newVal  ) {
+          //  console.log('你设置了' + key);
+          //  console.log('新的的值为 ' + newVal)
+            if(typeof newVal == 'object'){  //设置的值为对象或者为数组
+            	  new Observer(newVal);
+            }
+            fun(newVal);
+
+        }
+    })
+};
+
+let data1 = {
+ 
+        name: "王志俊",
+        age: "21"
+ 
+   
+};
+
+let app = new Observer(data1);
+console.log(app);
+app.$watch('age', function(age) {
+         console.log(`我的年纪变了，现在已经是：${age}岁了`)
+ });
+	</script>
+	<p>操作对象age属性在控制台上即可：
+		<br><code>app1.$watch('age', function(age) {
+         console.log(`我的年纪变了，现在已经是：${age}岁了`)
+ });</code></p>
+</body>
+</html>
