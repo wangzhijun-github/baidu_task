@@ -17,16 +17,16 @@ let p = Observer.prototype;
 
 
 p.$watch = function(key,fun){  //定义setter的回调函数
-	  this.setterFun(key ,fun);
+	  this.setterFun(key ,this.data[key] ,fun);
 };
 
-p.setterFun = function (key,fun) {  //setter 触发这个回调函数
+p.setterFun = function (key,val,fun) {  //setter 触发这个回调函数
     Object.defineProperty(this.data, key, {
         enumerable: true,
         configurable: true,
         get: function () {
             console.log('你访问了' + key);
-            return val
+            return val ;
         },
         set: function (newVal  ) {
           //  console.log('你设置了' + key);
